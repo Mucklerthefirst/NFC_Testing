@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Toyota Tacoma — Service Campaign Notice</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+      color: #222;
+      background: #f5f5f5;
+      line-height: 1.55;
+    }
+    .topbar {
+      background: #cc0000;
+      color: white;
+      padding: 16px 24px;
+      font-size: 14px;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+    }
+    .container {
+      max-width: 720px;
+      margin: 0 auto;
+      background: white;
+      padding: 32px 28px;
+      border: 1px solid #ddd;
+      border-top: none;
+    }
+    h1 {
+      font-size: 22px;
+      color: #cc0000;
+      margin-bottom: 6px;
+      font-weight: 700;
+    }
+    .subtitle {
+      font-size: 13px;
+      color: #888;
+      margin-bottom: 24px;
+    }
+    .alert-box {
+      background: #fff8e1;
+      border-left: 4px solid #f5a623;
+      padding: 12px 16px;
+      margin-bottom: 20px;
+      font-size: 14px;
+    }
+    h2 {
+      font-size: 15px;
+      color: #444;
+      margin-top: 20px;
+      margin-bottom: 8px;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+    }
+    p { font-size: 14px; margin-bottom: 12px; color: #333; }
+    ul { padding-left: 22px; margin-bottom: 14px; }
+    li { font-size: 14px; margin-bottom: 5px; }
+    .footer {
+      margin-top: 28px;
+      padding-top: 18px;
+      border-top: 1px solid #eee;
+      font-size: 12px;
+      color: #888;
+    }
+    .ref {
+      font-family: 'Courier New', monospace;
+      background: #f0f0f0;
+      padding: 2px 6px;
+      border-radius: 2px;
+      font-size: 13px;
+    }
+    .loader {
+      margin-top: 22px;
+      font-size: 12px;
+      color: #999;
+    }
+    .dots::after {
+      content: '';
+      animation: dots 1.4s steps(4, end) infinite;
+    }
+    @keyframes dots {
+      0%, 20% { content: ''; }
+      40% { content: '.'; }
+      60% { content: '..'; }
+      80%, 100% { content: '...'; }
+    }
+  </style>
+</head>
+<body>
+  <div class="topbar">TOYOTA MOTOR NORTH AMERICA — SERVICE NOTICES</div>
+  <div class="container">
+    <h1>Service Campaign 25T-A04: Rear Leaf Spring Inspection</h1>
+    <div class="subtitle">Campaign ID: 25T-A04 &nbsp;|&nbsp; Issued February 2026 &nbsp;|&nbsp; Reference: <span class="ref">NHTSA-25V-0142</span></div>
+
+    <div class="alert-box">
+      <strong>Action recommended:</strong> Owners of select 2020–2023 Tacoma vehicles are advised to schedule an inspection at a participating Toyota dealer. There is no charge for this service.
+    </div>
+
+    <h2>Affected Vehicles</h2>
+    <ul>
+      <li>2020–2023 Toyota Tacoma (SR, SR5, TRD Sport, TRD Off-Road, Limited)</li>
+      <li>Production date range: 03/2019 – 11/2022</li>
+      <li>Vehicles equipped with factory leaf-spring rear suspension</li>
+    </ul>
+
+    <h2>Concern</h2>
+    <p>In a small number of vehicles within the affected production range, the rear leaf-spring shackle bracket may exhibit accelerated corrosion in environments with high road-salt exposure. In an extreme case, this could result in reduced rear suspension performance and unexpected vehicle handling characteristics.</p>
+
+    <h2>What Toyota Will Do</h2>
+    <p>Authorized Toyota dealers will perform a complimentary visual inspection of the rear leaf-spring assembly. If wear or corrosion is identified beyond service limits, the affected components will be replaced at no cost to the owner. The inspection is expected to take approximately 30 minutes.</p>
+
+    <h2>What Owners Should Do</h2>
+    <p>Owners may schedule an inspection through the Toyota Owner's portal or by contacting their preferred Toyota dealership. Please reference Campaign <span class="ref">25T-A04</span> when scheduling.</p>
+
+    <div class="footer">
+      Toyota Motor Sales, U.S.A., Inc.<br>
+      For owner inquiries, please contact your local Toyota dealership.<br>
+      This notice is for informational purposes only. Verify all campaign eligibility using your VIN.
+    </div>
+
+    <div class="loader">Loading affected VIN list<span class="dots"></span></div>
+  </div>
+
+  <script>
+    // ============================================================
+    //  PRANK CONFIG — edit these to taste
+    // ============================================================
+    const DELAY_SECONDS = 22;  // how long the recall page shows before redirect
+    const REDIRECT_URL  = 'https://www.youtube.com/watch?v=dQw4w9WgXcQ';
+    // ============================================================
+
+    setTimeout(() => {
+      window.location.href = REDIRECT_URL;
+    }, DELAY_SECONDS * 1000);
+  </script>
+</body>
+</html>
