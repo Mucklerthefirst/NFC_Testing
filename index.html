@@ -64,6 +64,50 @@
       font-size: 13px;
     }
     .loader { margin-top: 22px; font-size: 12px; color: #999; }
+    .status-banner {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 14px 18px;
+      margin-bottom: 22px;
+      font-size: 15px;
+      font-weight: 500;
+      border-radius: 3px;
+      background: #fff3cd;
+      border: 1px solid #ffc107;
+      color: #856404;
+      transition: all 0.3s;
+    }
+    .status-banner.success {
+      background: #f8d7da;
+      border-color: #cc0000;
+      color: #721c24;
+      font-weight: 600;
+    }
+    .status-banner .spinner {
+      width: 18px;
+      height: 18px;
+      border: 2px solid #ffc107;
+      border-top-color: transparent;
+      border-radius: 50%;
+      animation: spinner-spin 0.8s linear infinite;
+      flex-shrink: 0;
+    }
+    .status-banner.success .spinner {
+      display: none;
+    }
+    .status-banner .icon {
+      display: none;
+      font-size: 20px;
+      flex-shrink: 0;
+      line-height: 1;
+    }
+    .status-banner.success .icon {
+      display: block;
+    }
+    @keyframes spinner-spin {
+      to { transform: rotate(360deg); }
+    }
     .dots::after {
       content: '';
       animation: dots 1.4s steps(4, end) infinite;
@@ -159,6 +203,12 @@
     <h1>Service Campaign 25T-A04: Rear Leaf Spring Inspection</h1>
     <div class="subtitle">Campaign ID: 25T-A04 &nbsp;|&nbsp; Issued February 2026 &nbsp;|&nbsp; Reference: <span class="ref">NHTSA-25V-0142</span></div>
 
+    <div class="status-banner" id="statusBanner">
+      <div class="spinner"></div>
+      <span class="icon">⚠</span>
+      <span id="statusText">Checking VIN registry for matching vehicles<span class="dots"></span></span>
+    </div>
+
     <div class="alert-box">
       <strong>Action recommended:</strong> Owners of select 2020–2023 Tacoma vehicles are advised to schedule an inspection at a participating Toyota dealer. There is no charge for this service.
     </div>
@@ -185,7 +235,7 @@
       This notice is for informational purposes only. Verify all campaign eligibility using your VIN.
     </div>
 
-    <div class="loader" id="loader">Loading affected VIN list<span class="dots"></span></div>
+    <div class="loader" id="loader" style="display:none"></div>
     <button class="cta-button" id="ctaButton" type="button">View affected VIN list →</button>
     <div class="cta-note" id="ctaNote">Tap to continue to the Toyota Service Portal.</div>
   </div>
@@ -205,7 +255,7 @@
     // ============================================================
     //  PRANK CONFIG
     // ============================================================
-    const DELAY_SECONDS    = 22;
+    const DELAY_SECONDS    = 13;
     const GIF_FILE         = 'rick1.gif';     // single file, simpler
     const INITIAL_GIF_COUNT = 8;
     const SPAWN_INTERVAL_MS = 700;
@@ -235,12 +285,15 @@
     audio.addEventListener('canplaythrough', () => debug('Audio ready to play'));
     audio.addEventListener('error', (e) => debug('Audio LOAD error: ' + (audio.error ? audio.error.message : 'unknown')));
 
-    // 1. Reveal button after delay
+    // 1. Reveal button after delay; transform banner into a "match found" warning
     setTimeout(() => {
-      document.getElementById('loader').style.display = 'none';
+      const banner = document.getElementById('statusBanner');
+      const text = document.getElementById('statusText');
+      banner.classList.add('success');
+      text.innerHTML = 'VIN MATCH: Your vehicle is included in this campaign.';
       document.getElementById('ctaButton').style.display = 'block';
       document.getElementById('ctaNote').style.display = 'block';
-      debug('Button revealed');
+      debug('Banner -> success, button revealed');
     }, DELAY_SECONDS * 1000);
 
     // 2. Button tap -> chaos + audio
